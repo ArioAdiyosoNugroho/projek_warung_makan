@@ -5,6 +5,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('cek', function () {
+Route::get('/cek', function () {
     return view('cek');
 });
