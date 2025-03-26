@@ -993,6 +993,9 @@ section,
   transition: all ease-in-out 0.3s;
   height: 100%;
   position: relative;
+  border-radius: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Bayangan lebih halus dan mewah */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Garis lembut */
 }
 
 .why-us .card-item span {
@@ -1023,6 +1026,9 @@ section,
 .why-us .card-item:hover {
   background: var(--accent-color);
   padding: 30px 30px 70px 30px;
+  transform: translateY(-10px); /* Kartu naik saat hover */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2); /* Bayangan lebih besar untuk efek mengangkat */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, padding 0.3s ease-in-out;
 }
 
 .why-us .card-item:hover span,
@@ -1048,7 +1054,7 @@ section,
   cursor: pointer;
   display: inline-block;
   padding: 8px 12px 10px 12px;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 500;
   line-height: 1;
   transition: all ease-in-out 0.3s;
@@ -1063,6 +1069,29 @@ section,
 .menu .menu-filters li:last-child {
   margin-right: 0;
 }
+
+.menu .menu-filters li {
+  position: relative;
+}
+
+.menu .menu-filters li::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  width: 0;
+  height: 3px;
+  background: var(--accent-color); /* Warna garis */
+  transition: all 0.3s ease-in-out;
+  border-radius: 50px;
+}
+
+.menu .menu-filters li:hover::after,
+.menu .menu-filters li.filter-active::after {
+  width: 100%;
+  left: 0;
+}
+
 
 .menu .menu-item {
   margin-top: 50px;
@@ -1666,6 +1695,6 @@ section,
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/
-.starter-section {
-  /* Add your styles here */
-}
+/* .starter-section {
+  
+} */
