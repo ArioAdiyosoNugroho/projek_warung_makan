@@ -1,18 +1,37 @@
 <?php
 
+use App\Http\Controllers\InformasiWarungController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
-// Route::get('/cekin', function () {
-//     return view('cek');
-// });
-
+// ===========================halaman home page========================
 Route::get('/home', function () {
     return view('Home.index');
-});
+})->name('halhome');
+// ============================== end home page =======================//
 
+
+// =================================halaman admin========================
+Route::get('/user', function () {
+    return view('admin.index');
+})->name('haladmin');
+
+// ````````````settings`````````````````
+Route::get('/setting-info', [InformasiWarungController::class, 'showEdit'])->name('setinfo');
+Route::post('/setting-info', [InformasiWarungController::class, 'update']);
+route::get('/setting-about', function () {
+    return view('setting.setabout');
+})->name('setabout');
+
+
+// ==================================end halaman admin=================//
+
+
+
+
+// ========================jetstream=========================
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -22,3 +41,4 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+// =========================================================

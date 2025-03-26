@@ -4,12 +4,12 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Index - Delicious Bootstrap Template</title>
+  <title>Rumah Makan Putri Jaya</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
   <!-- Favicons -->
-  <link href="{{ asset('tamp/assets/img/favicon.png') }}" rel="icon">
+  <link href="{{ asset('tamp/assets/img/favicon.png') }}" rel="icon"> {{-- icon tap browswer --}}
   <link href="{{ asset('tamp/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
   <!-- Fonts -->
@@ -27,13 +27,6 @@
   <!-- Main CSS File -->
   <link href="{{ asset('tamp/assets/css/main.css') }}" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: Delicious
-  * Template URL: https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body class="index-page">
@@ -53,10 +46,10 @@
     <div class="branding d-flex align-items-cente">
 
       <div class="container position-relative d-flex align-items-center justify-content-between">
-        <a href="index.html" class="logo d-flex align-items-center">
+        <a href="{{ route('halhome') }}" class="logo d-flex align-items-center">
           <!-- Uncomment the line below if you also wish to use an image logo -->
           <!-- <img src="assets/img/logo.png" alt=""> -->
-          <h1 class="sitename">Delicious</h1>
+          <h1 class="sitename">Putri Jaya</h1>
         </a>
 
         <nav id="navmenu" class="navmenu">
@@ -106,8 +99,8 @@
         <div class="carousel-item active">
           <img src="{{ asset('tamp/assets/img/hero-carousel/hero-carousel-1.jpg') }}" alt="">
           <div class="carousel-container">
-            <h2><span>Delicious</span> Restaurant</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <h2><span>Selamat datang di</span> Putri Jaya</h2>
+            <p>Temukan cita rasa khas tradisional dengan sentuhan bumbu rempah pilihan. Dari ayam bakar yang gurih hingga sambal yang menggugah selera, kami menghadirkan kelezatan sejati untuk Anda.</p>
             <div>
               <a href="#menu" class="btn-get-started">Our Menu</a>
               <a href="#book-a-table" class="btn-get-started">Book a table</a>
@@ -118,8 +111,8 @@
         <div class="carousel-item">
           <img src="{{ asset('tamp/assets/img/hero-carousel/hero-carousel-2.jpg') }}" alt="">
           <div class="carousel-container">
-            <h2>At vero eos et accusamus</h2>
-            <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut.</p>
+            <h2>Enak dan nyaman</h2>
+            <p>Temukan berbagai manu yang lezat dan enak serta nikmati pemandangan pedesaan yang asri dan indah</p>
             <div>
               <a href="#menu" class="btn-get-started">Our Menu</a>
               <a href="#book-a-table" class="btn-get-started">Book a table</a>
@@ -130,8 +123,8 @@
         <div class="carousel-item">
           <img src="{{ asset('tamp/assets/img/hero-carousel/hero-carousel-3.jpg') }}" alt="">
           <div class="carousel-container">
-            <h2>Temporibus autem quibusdam</h2>
-            <p>Beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt omnis iste natus error sit voluptatem accusantium.</p>
+            <h2>Memancing yang seru</h2>
+            <p>Tidak hanya menimati berbagai menu yang lezat tapi anda juga dapat memancing ikan yang segar</p>
             <div>
               <a href="#menu" class="btn-get-started">Our Menu</a>
               <a href="#book-a-table" class="btn-get-started">Book a table</a>
@@ -161,7 +154,7 @@
         <div class="row gy-4">
           <div class="col-lg-6 position-relative align-self-start" data-aos="fade-up" data-aos-delay="100">
             <img src="{{ asset('tamp/assets/img/about.jpg') }}" class="img-fluid" alt="">
-            <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a>
+            <a href="https://youtu.be/fJh5UeiULZs?si=OFi2uintq1hrTG3F" class="glightbox pulsating-play-btn"></a>
           </div>
           <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="200">
             <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
