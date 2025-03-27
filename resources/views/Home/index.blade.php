@@ -36,8 +36,22 @@
     <div class="topbar d-flex align-items-center">
       <div class="container d-flex justify-content-end justify-content-md-between">
         <div class="contact-info d-flex align-items-center">
-          <i class="bi bi-phone d-flex align-items-center d-none d-lg-block"><span>+1 5589 55488 55</span></i>
-          <i class="bi bi-clock ms-4 d-none d-lg-flex align-items-center"><span>Mon-Sat: 11:00 AM - 23:00 PM</span></i>
+          {{-- <i class="bi bi-phone d-flex align-items-center d-none d-lg-block"><span>+1 5589 55488 55</span></i>
+          <i class="bi bi-clock ms-4 d-none d-lg-flex align-items-center"><span>Mon-Sat: 11:00 AM - 23:00 PM</span></i> --}}
+          @if ($informasi)
+              <i class="bi bi-phone d-flex align-items-center d-none d-lg-block">
+                <span>{{ $informasi->formatted_contact }}</span>
+              </i>
+            
+              <i class="bi bi-clock ms-4 d-none d-lg-flex align-items-center">
+                  <span>{{ $hariIni }}: {{ $jamBukaTutup }}</span>
+              </i>
+          @endif
+
+      
+
+
+
         </div>
         <a href="#book-a-table" class="cta-btn">Booka a table</a>
       </div>
@@ -49,7 +63,9 @@
         <a href="{{ route('halhome') }}" class="logo d-flex align-items-center">
           <!-- Uncomment the line below if you also wish to use an image logo -->
           <!-- <img src="assets/img/logo.png" alt=""> -->
-          <h1 class="sitename">Putri Jaya</h1>
+          @if($informasi)
+          <h1 class="sitename">{{ $informasi->nama_rumah_makan }}</h1>
+          @endif
         </a>
 
         <nav id="navmenu" class="navmenu">
@@ -906,7 +922,9 @@
                 <i class="bi bi-geo-alt flex-shrink-0"></i>
                 <div>
                   <h4>Location:</h4>
-                  <p>A108 Adam Street, New York, NY 535022</p>
+                  @if($informasi)
+                  <p>{{ $informasi->alamat }}</p>
+                  @endif
                 </div>
               </div><!-- End Info Item -->
 
@@ -914,7 +932,9 @@
                 <i class="bi bi-envelope flex-shrink-0"></i>
                 <div>
                   <h4>Email:</h4>
-                  <p>info@example.com</p>
+                  @if($informasi)
+                  <p>{{ $informasi->email }}</p>
+                  @endif
                 </div>
               </div><!-- End Info Item -->
 
@@ -922,7 +942,9 @@
                 <i class="bi bi-phone flex-shrink-0"></i>
                 <div>
                   <h4>Call:</h4>
-                  <p>+1 5589 55488 55</p>
+                  @if($informasi)
+                  <p>{{ $informasi->formatted_contact }}</p>
+                  @endif
                 </div>
               </div><!-- End Info Item -->
 
@@ -971,8 +993,9 @@
           <i class="bi bi-geo-alt icon"></i>
           <div class="address">
             <h4>Address</h4>
-            <p>A108 Adam Street</p>
-            <p>New York, NY 535022</p>
+            @if($informasi)
+              <p>{{ $informasi->alamat }}</p>
+            @endif
             <p></p>
           </div>
 
@@ -983,8 +1006,9 @@
           <div>
             <h4>Contact</h4>
             <p>
-              <strong>Phone:</strong> <span>+1 5589 55488 55</span><br>
-              <strong>Email:</strong> <span>info@example.com</span><br>
+              @if($informasi)
+                <p>{{ $informasi->formatted_contact }}</p>
+              @endif
             </p>
           </div>
         </div>
@@ -992,13 +1016,20 @@
         <div class="col-lg-3 col-md-6 d-flex">
           <i class="bi bi-clock icon"></i>
           <div>
-            <h4>Opening Hours</h4>
-            <p>
-              <strong>Mon-Sat:</strong> <span>11AM - 23PM</span><br>
-              <strong>Sunday</strong>: <span>Closed</span>
-            </p>
+              <h4>Opening Hours</h4>
+              <p>
+                  @if(isset($groupedJam) && count($groupedJam) > 0)
+                      @foreach($groupedJam as $group)
+                          <strong>{{ $group['hari'] }}:</strong> 
+                          <span>{{ $group['jam'] }}</span><br>
+                      @endforeach
+                  @else
+                      <p>Jam operasional belum tersedia.</p>
+                  @endif
+              </p>
           </div>
-        </div>
+      </div>
+      
 
         <div class="col-lg-3 col-md-6">
           <h4>Follow Us</h4>
