@@ -45,16 +45,28 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label class="col-sm-2 col-form-label">Jam Buka-Tutup</label>
-                                <div class="col-sm-5">
-                                    <input type="time" name="jam_buka" class="form-control"
-                                        value="{{ $informasi->jam_buka ?? '' }}" required />
-                                </div>
-                                <div class="col-sm-5">
-                                    <input type="time" name="jam_tutup" class="form-control"
-                                        value="{{ $informasi->jam_tutup ?? '' }}" required />
+                                <label class="col-sm-2 col-form-label">Jam Operasional</label>
+                                <div class="col-sm-10">
+                                    @php
+                                        $hari = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'];
+                                        $jam_operasional = $informasi->jam_operasional ?? [];
+                                    @endphp
+                                    @foreach ($hari as $day)
+                                        <div class="row mb-2">
+                                            <label class="col-sm-2">{{ $day }}</label>
+                                            <div class="col-sm-5">
+                                                <input type="time" name="jam_operasional[{{ $day }}][buka]" class="form-control"
+                                                    value="{{ $jam_operasional[$day]['buka'] ?? '' }}" />
+                                            </div>
+                                            <div class="col-sm-5">
+                                                <input type="time" name="jam_operasional[{{ $day }}][tutup]" class="form-control"
+                                                    value="{{ $jam_operasional[$day]['tutup'] ?? '' }}" />
+                                            </div>
+                                        </div>
+                                    @endforeach
                                 </div>
                             </div>
+                            
                             <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label">Alamat</label>
                                 <div class="col-sm-10">
