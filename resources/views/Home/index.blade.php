@@ -47,11 +47,6 @@
                   <span>{{ $hariIni }}: {{ $jamBukaTutup }}</span>
               </i>
           @endif
-
-      
-
-
-
         </div>
         <a href="#book-a-table" class="cta-btn">Booka a table</a>
       </div>

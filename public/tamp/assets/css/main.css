@@ -233,7 +233,7 @@ h6 {
 
 .header .topbar {
   background-color: var(--background-color);
-  padding: 10px 0 0 0;
+  padding: 8px 0 8px 0;
   font-size: 14px;
   transition: all 0.5s;
 }
@@ -271,13 +271,66 @@ h6 {
   color: var(--contrast-color);
   background: var(--accent-color);
   font-weight: 500;
-  font-size: 14px;
+  font-size: 12px;
+  min-width: auto;
   letter-spacing: 1px;
   display: inline-block;
-  padding: 6px 30px 8px 30px;
-  border-radius: 50px;
+  padding: 5px 20px; 
+  border-radius: 25px;
   transition: 0.3s;
 }
+
+
+/* Responsif untuk kontak & jam buka */
+.header .topbar .contact-info {
+  display: flex;
+  flex-wrap: wrap; 
+  align-items: center;
+  gap: 8px;
+}
+
+.header .topbar .contact-info i {
+  font-size: 14px;
+}
+
+.header .topbar .contact-info span {
+  font-size: 14px;
+}
+
+/* Untuk ukuran HP kecil (maksimum lebar 768px) */
+@media (max-width: 768px) {
+  .header .topbar {
+    font-size: 12px;
+    padding: 5px 0;
+    text-align: center;
+  }
+
+  .header .topbar .contact-info {
+    justify-content: center;
+    flex-direction: column; /* Susun vertikal di layar kecil */
+    gap: 5px;
+  }
+
+  .header .topbar .cta-btn {
+    font-size: 12px;
+    padding: 4px 16px;
+    min-width: auto;
+  }
+}
+
+/* Untuk HP sangat kecil (maksimum lebar 480px) */
+@media (max-width: 480px) {
+  .header .topbar .contact-info span {
+    font-size: 12px;
+  }
+
+  .header .topbar .cta-btn {
+    font-size: 11px;
+    padding: 3px 12px;
+    border-radius: 15px;
+  }
+}
+
 
 .header .topbar .cta-btn:hover {
   background: color-mix(in srgb, var(--accent-color), transparent 20%);
@@ -885,6 +938,88 @@ section,
   background: var(--accent-color);
 }
 
+/* Pastikan tombol sejajar */
+.hero .carousel-container div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* Jarak antar tombol */
+  flex-wrap: nowrap; /* Memaksa tombol tetap dalam satu baris */
+}
+
+/* Atur ukuran tombol supaya tetap proporsional */
+.hero .btn-get-started {
+  font-size: 14px;
+  padding: 8px 16px;
+  min-width: 120px; /* Lebar minimal tombol agar sejajar */
+  white-space: nowrap; /* Mencegah teks turun */
+}
+
+/* Untuk ukuran tablet dan HP besar */
+@media (max-width: 1024px) {
+  .hero h2 {
+    font-size: 32px; 
+    text-align: center;
+  }
+
+  .hero p {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .hero .btn-get-started {
+    font-size: 14px;
+    padding: 8px 14px;
+    min-width: 110px;
+  }
+}
+
+/* Untuk HP kecil (Lebar layar < 768px) */
+@media (max-width: 768px) {
+  .hero h2 {
+    font-size: 24px; 
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .hero .carousel-container div {
+    flex-wrap: nowrap; /* Mencegah tombol turun */
+  }
+
+  .hero .btn-get-started {
+    font-size: 13px;
+    min-width: 100px; /* Tombol lebih kecil agar cukup di layar */
+    padding: 6px 12px;
+  }
+}
+
+/* Untuk HP sangat kecil (Lebar layar < 480px) */
+@media (max-width: 480px) {
+  .hero h2 {
+    font-size: 27px;
+  }
+
+  .hero p {
+    font-size: 13px;
+  }
+
+  .hero .btn-get-started {
+    font-size: 12px;
+    min-width: 90px; /* Lebar tombol lebih kecil agar tetap sejajar */
+    padding: 8px 14px;
+  }
+
+  .hero .carousel-container div {
+    flex-wrap: nowrap; /* Tetap sejajar ke samping */
+    justify-content: center;
+  }
+}
+
+
+
+
 .hero .carousel-control-prev,
 .hero .carousel-control-next {
   width: 10%;
@@ -948,6 +1083,7 @@ section,
     transform: translate3d(0, 0, 0);
   }
 }
+
 
 /*--------------------------------------------------------------
 # About Section
@@ -1212,10 +1348,12 @@ section,
   }
 
   .specials .nav-link.active {
-    color: var(--accent-color);
+    color: var(--nav-dropdown-background-color);
     background: var(--accent-color);
   }
 }
+
+
 
 /*--------------------------------------------------------------
 # Events Section
