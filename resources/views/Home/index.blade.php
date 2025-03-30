@@ -161,8 +161,21 @@
     <section id="about" class="about section light-background">
 
       <div class="container">
-
         <div class="row gy-4">
+          @foreach($abouts as $about)
+            <div class="col-lg-6 position-relative align-self-start" data-aos="fade-up" data-aos-delay="100">
+              <img src="{{ asset('uploads/'.$about->image) }}" class="img-fluid" alt="">
+              <a href="{{ $about->video_url }}" class="glightbox pulsating-play-btn"></a>
+            </div>
+
+            <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="200">
+              {{-- <h3>{{ $about->title ?? 'Judul Default' }}</h3> --}}
+              <p class="fst-italic">{!! $about->description !!}</p>
+            </div>
+          @endforeach
+        </div>
+
+        {{-- <div class="row gy-4">
           <div class="col-lg-6 position-relative align-self-start" data-aos="fade-up" data-aos-delay="100">
             <img src="{{ asset('tamp/assets/img/about.jpg') }}" class="img-fluid" alt="">
             <a href="https://youtu.be/fJh5UeiULZs?si=OFi2uintq1hrTG3F" class="glightbox pulsating-play-btn"></a>
@@ -183,7 +196,7 @@
               velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
             </p>
           </div>
-        </div>
+        </div> --}}
 
       </div>
 

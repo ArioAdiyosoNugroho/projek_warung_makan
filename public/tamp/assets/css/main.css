@@ -1104,10 +1104,51 @@ section,
 }
 
 .about .content ul i {
-  color: var(--accent-color);
+  color: var(--default-color);
+  /* list-style-type: disc; */
+  margin-left: 20px;
+  z-index: 1;
+  opacity: 1;
   margin-right: 0.5rem;
   line-height: 1.2;
   font-size: 1.25rem;
+}
+
+.about .content ul {
+  list-style: disc outside; 
+  margin-left: 20px; 
+}
+
+.about .content ul li::marker {
+  color: var(--accent-color); /* Ganti warna bullet */
+  font-size: 1.5rem; /* Ubah ukuran bullet jika diperlukan */
+}
+
+blockquote {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--default-color);
+  background-color: var(--surface-color);
+  padding: 15px 20px;
+  margin: 20px 0;
+  border-left: 5px solid var(--accent-color);
+}
+
+figure.media {
+  display: block; /* Pastikan elemen ditampilkan */
+  margin: 20px auto; /* Tambahkan margin untuk tata letak */
+  max-width: 100%; /* Pastikan elemen tidak melampaui lebar kontainer */
+}
+
+figure.media oembed {
+  display: block;
+  width: 100%; /* Pastikan oEmbed menyesuaikan lebar kontainer */
+  height: auto; /* Sesuaikan tinggi secara proporsional */
+}
+
+.about .content ul li {
+  padding: 10px 0 0 0;
+  display: list-item; 
 }
 
 .about .content p:last-child {
@@ -1119,6 +1160,14 @@ section,
   left: calc(50% - 47px);
   top: calc(50% - 47px);
 }
+
+/* .content ul, li {
+  color: var(--default-color); 
+  list-style-type: disc;
+  margin-left: 20px;
+  z-index: 1;
+  opacity: 1;
+} */
 
 /*--------------------------------------------------------------
 # Why Us Section

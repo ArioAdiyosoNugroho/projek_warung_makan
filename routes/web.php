@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InformasiWarungController;
+use App\Http\Controllers\SetAboutController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -11,17 +13,9 @@ Route::fallback(function () {
 });
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 // ===========================halaman home page========================
-// Route::get('/home', function () {
-//     return view('Home.index');
-// })->name('halhome');
-
-Route::get('/home', [HomeController::class, 'index'])->name('halhome');
-
-
+Route::get('/', [HomeController::class, 'index'])->name('halhome');
 // ============================== end home page =======================//
 
 
@@ -31,11 +25,16 @@ Route::get('/user', function () {
 })->name('haladmin');
 
 // ````````````settings`````````````````
+//informasi
 Route::get('/setting-info', [InformasiWarungController::class, 'showEdit'])->name('setinfo');
 Route::post('/setting-info', [InformasiWarungController::class, 'update']);
-route::get('/setting-about', function () {
-    return view('setting.setabout');
-})->name('setabout');
+
+//about
+Route::get('setting-about', [AboutController::class, 'index'])->name('setabout'); // Menampilkan form
+Route::post('setting-about', [AboutController::class, 'store'])->name('setabout.store'); // Menyimpan data baru
+Route::put('setting-about/{id}', [AboutController::class, 'update'])->name('setabout.update'); // Update data
+// Route::delete('setting-about/{id}', [AboutController::class, 'destroy'])->name('setabout.destroy'); // Hapus data
+
 
 
 // ==================================end halaman admin=================//
