@@ -52,7 +52,10 @@
   
       <script src="{{ asset('admin/assets/vendor/js/menu.js') }}"></script>
       <!-- endbuild -->
-  
+      
+      {{-- WYSWYG --}}
+      {{-- <script src="{{ asset('CKEditor/index.js') }}"></script> --}}
+
       <!-- Vendors JS -->
       <script src="{{ asset('admin/assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
   
