@@ -1,4 +1,24 @@
 <x-header>setting</x-header>
+<style>
+  .container{
+    width: 100%;
+  }
+
+  @media (max-width: 768px) {
+   .isi, .container {
+    width: 100%;
+    padding: 0; 
+    margin: 0 auto;
+  }
+
+
+  .isi, .container {
+    width: 100%;
+    padding: 0; 
+    margin: 0 auto;
+  }
+}
+</style>
 
 <x-sidebar></x-sidebar>
 
@@ -47,8 +67,8 @@
                   class="nav-link"
                   role="tab"
                   data-bs-toggle="tab"
-                  data-bs-target="#navs-pills-top-about-profile"
-                  aria-controls="navs-pills-top-about-profile"
+                  data-bs-target="#navs-pills-top-about-whyus"
+                  aria-controls="navs-pills-top-about-whyus"
                   aria-selected="false"
                 >
                   about/why us
@@ -71,7 +91,7 @@
                     cheesecake fruitcake.
                 </p>
                 <div class="container">
-                  <div class="card-body">
+                  <div class="isi card-body">
                     <form action="{{ route('setabout.update', $about->id ?? 1) }}" method="POST" enctype="multipart/form-data">
                       @csrf
                           @method('PUT') {{-- Laravel butuh ini untuk update data --}}
@@ -101,7 +121,7 @@
                 </div>  
               </div>            
          
-              <div class="tab-pane fade" id="navs-pills-top-about-profile" role="tabpanel">
+              <div class="tab-pane fade" id="navs-pills-top-about-whyus" role="tabpanel">
                 <p>
                   Oat cake chupa chups dragée donut toffee. Sweet cotton candy jelly beans macaroon gummies
                   cupcake gummi bears cake chocolate.

@@ -217,7 +217,7 @@ svg {
 
     <div class="error-container">
         <p>Oops! Halaman yang Anda cari tidak ditemukan.</p>
-        <a href="/home">Kembali ke Beranda</a>
+        <a href="/">Kembali ke Beranda</a>
     </div>
     
     </div>
