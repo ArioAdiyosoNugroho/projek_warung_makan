@@ -943,16 +943,16 @@ section,
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px; /* Jarak antar tombol */
-  flex-wrap: nowrap; /* Memaksa tombol tetap dalam satu baris */
+  text-align: center;
+  gap: 10px; 
+  flex-wrap: nowrap; 
 }
 
-/* Atur ukuran tombol supaya tetap proporsional */
 .hero .btn-get-started {
   font-size: 14px;
   padding: 8px 16px;
-  min-width: 120px; /* Lebar minimal tombol agar sejajar */
-  white-space: nowrap; /* Mencegah teks turun */
+  min-width: 120px; 
+  white-space: nowrap;
 }
 
 /* Untuk ukuran tablet dan HP besar */
@@ -990,7 +990,7 @@ section,
 
   .hero .btn-get-started {
     font-size: 13px;
-    min-width: 100px; /* Tombol lebih kecil agar cukup di layar */
+    min-width: 100px; 
     padding: 6px 12px;
   }
 }
@@ -998,21 +998,21 @@ section,
 /* Untuk HP sangat kecil (Lebar layar < 480px) */
 @media (max-width: 480px) {
   .hero h2 {
-    font-size: 27px;
+    font-size: 30px;
   }
 
   .hero p {
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .hero .btn-get-started {
     font-size: 12px;
-    min-width: 90px; /* Lebar tombol lebih kecil agar tetap sejajar */
+    min-width: 90px; 
     padding: 8px 14px;
   }
 
   .hero .carousel-container div {
-    flex-wrap: nowrap; /* Tetap sejajar ke samping */
+    flex-wrap: nowrap;
     justify-content: center;
   }
 }
@@ -1134,6 +1134,7 @@ blockquote {
   border-left: 5px solid var(--accent-color);
 }
 
+
 figure.media {
   display: block; /* Pastikan elemen ditampilkan */
   margin: 20px auto; /* Tambahkan margin untuk tata letak */
@@ -1159,6 +1160,31 @@ figure.media oembed {
   position: absolute;
   left: calc(50% - 47px);
   top: calc(50% - 47px);
+}
+
+@media (max-width: 768px) {
+  blockquote {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  blockquote {
+    font-size: 15px;
+  }
+
+  .about .content h3,h2,h1 {
+    font-size: 1.7rem;
+  }
+
+
+  .about .content p{
+    font-size: 15px;
+  }
+
+  .about .content ul li {
+    font-size: 15px; 
+  }
 }
 
 /* .content ul, li {
