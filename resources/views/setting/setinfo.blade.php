@@ -18,30 +18,37 @@
                             <div class="alert alert-success alert-dismissible" role="alert">
                                 {{ session('success') }}
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                              </div>
+                            </div>
                         @endif
+                        @if ($errors->any())
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                                @foreach ($errors->all() as $error)
+                                    {{ $error }}
+                                @endforeach
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
+                    
+                        <x-notifikasi></x-notifikasi>
 
                         <form action="{{ url('/setting-info') }}" method="POST">
                             @csrf
                             <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label" for="basic-default-name">Name</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="nama_rumah_makan"
-                                        value="{{ $informasi->nama_rumah_makan ?? '' }}" required />
+                                    <input type="text" class="form-control" name="nama_rumah_makan" value="{{ $informasi->nama_rumah_makan ?? '' }}" required />
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label">Contact</label>
                                 <div class="col-sm-10">
-                                    <input type="tel" class="form-control" name="contact"
-                                        value="{{ $informasi->contact ?? '' }}" required />
+                                    <input type="tel" class="form-control" name="contact" value="{{ $informasi->contact ?? '' }}" required />
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label">Email</label>
                                 <div class="col-sm-10">
-                                    <input type="email" class="form-control" name="email"
-                                        value="{{ $informasi->email ?? '' }}" required />
+                                    <input type="email" class="form-control" name="email" value="{{ $informasi->email ?? '' }}" required />
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -67,6 +74,7 @@
                                 </div>
                             </div>
                             
+
                             <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label">Alamat</label>
                                 <div class="col-sm-10">

@@ -76,31 +76,41 @@
       </li>
 
       <!-- Layouts -->
-      <li class="menu-item {{ Request::routeIs('setinfo') ||  request::routeIs('setabout')? 'active' : '' }}">
+      <li class="menu-item {{ Request::routeIs('setinfo') ||  request::routeIs('setabout') || request::routeIs('setWhyUs')? 'active' : '' }}">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
         <i class='bx bx-cog bx-spin' ></i>
           <div data-i18n="Layouts">Setting</div>
         </a>
 
-        <ul class="menu-sub {{ Request::routeIs('setinfo') ||  request::routeIs('setabout')? 'show' : '' }}">
+        <ul class="menu-sub {{ Request::routeIs('setinfo') ||  request::routeIs('setabout') || request::routeIs('setWhyUs') || request::routeIs('setmenu') ? 'show' : '' }}">
           <li class="menu-item {{ Request::routeIs('setinfo') ? 'active' : '' }}">
             <a href="{{ route('setinfo') }}" class="menu-link">
               <div data-i18n="Without menu">Informasi Rumah Makan</div>
             </a>
           </li>
-          <li class="menu-item {{ Request::routeIs('setabout') ? 'active' : '' }}">
-            <a href="{{ route('setabout') }}" class="menu-link">
-              <div data-i18n="Without menu">Home/about</div>
-            </a>
-          </li>
           <li class="menu-item">
             <a href="layouts-container.html" class="menu-link">
-              <div data-i18n="Container">Menu</div>
+              <div data-i18n="Container">Home</div>
+            </a>
+          </li>
+          <li class="menu-item {{ Request::routeIs('setabout') ? 'active' : '' }}">
+            <a href="{{ route('setabout') }}" class="menu-link">
+              <div data-i18n="Without menu">about</div>
+            </a>
+          </li>
+          <li class="menu-item {{ Request::routeIs('setWhyUs') ? 'active' : '' }}">
+            <a href="{{ route('setWhyUs') }}" class="menu-link">
+              <div data-i18n="Without menu">Why Us</div>
             </a>
           </li>
           <li class="menu-item">
             <a href="layouts-fluid.html" class="menu-link">
               <div data-i18n="Fluid">Galery/event/etc.</div>
+            </a>
+          </li>
+          <li class="menu-item{{ Request::routeIs ('setmenu') ? 'active' : '' }}">
+            <a href="layouts-fluid.html" class="menu-link">
+              <div data-i18n="Fluid">Menu</div>
             </a>
           </li>
         </ul>

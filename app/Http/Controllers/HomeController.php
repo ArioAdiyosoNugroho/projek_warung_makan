@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\InformasiWarung;
 use App\Models\About;
+use App\Models\WhyUs;
 use Carbon\Carbon;
 
 class HomeController extends Controller
@@ -14,6 +15,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $WhyUs = WhyUs::orderBy('created_at', 'desc')->take(3)->get();
         $abouts = About::all();
         $informasi = InformasiWarung::first(); // Ambil data pertama
         $hariIni = Carbon::now()->locale('id')->translatedFormat('l'); // Nama hari dalam bahasa Indonesia
@@ -30,7 +32,7 @@ class HomeController extends Controller
         //untuk mengelompokkan jam operasional
         $groupedJam = $this->formatJamOperasional($jamOperasional);
     
-        return view('Home.index', compact('informasi', 'hariIni', 'jamBukaTutup','groupedJam','abouts'));
+        return view('Home.index', compact('informasi', 'hariIni', 'jamBukaTutup','groupedJam','abouts','WhyUs'));
         
     }
     //PUSING ANJEEERRRR😭
