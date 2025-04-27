@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\InformasiWarung;
 use App\Models\About;
 use App\Models\WhyUs;
+use App\Models\Menu;
+use App\Models\Category;
+use App\Models\Special;
 use Carbon\Carbon;
 
 class HomeController extends Controller
@@ -13,8 +16,14 @@ class HomeController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
+    public function index(Request $request)
+    {   
+        // =====kategori dan menunya======
+        $specials = Special::with('menu')->whereHas('menu')->get();
+        $categories = Category::all();
+        $menus = Menu::with('category')->get();
+
+        //========Hal Lain==========
         $WhyUs = WhyUs::orderBy('created_at', 'desc')->take(3)->get();
         $abouts = About::all();
         $informasi = InformasiWarung::first(); // Ambil data pertama
@@ -32,7 +41,7 @@ class HomeController extends Controller
         //untuk mengelompokkan jam operasional
         $groupedJam = $this->formatJamOperasional($jamOperasional);
     
-        return view('Home.index', compact('informasi', 'hariIni', 'jamBukaTutup','groupedJam','abouts','WhyUs'));
+        return view('Home.index', compact('informasi', 'hariIni', 'jamBukaTutup','groupedJam','abouts','WhyUs','menus','categories','specials'));
         
     }
     //PUSING ANJEEERRRR😭

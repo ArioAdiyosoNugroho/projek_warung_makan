@@ -240,7 +240,50 @@
 
     </section><!-- /Why Us Section -->
 
-    <!-- Menu Section -->
+    {{-- filepath: d:\laragon\www\Warung-Makan-Putri-Jaya\resources\views\Home\index.blade.php --}}
+    <section id="menu" class="menu section">
+    
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Menu</h2>
+        <div><span>Check Our Tasty</span> <span class="description-title">Menu</span></div>
+      </div><!-- End Section Title -->
+    
+      <div class="container isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+      
+        <!-- Menu Filters -->
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul class="menu-filters isotope-filters">
+              <li data-filter="*" class="filter-active">All</li>
+              @foreach($categories as $category)
+                <li data-filter=".filter-{{ strtolower($category->name) }}">{{ $category->name }}</li>
+              @endforeach
+            </ul>
+          </div>
+        </div><!-- End Menu Filters -->
+      
+        <!-- Menu Items -->
+        <div class="row isotope-container" data-aos="fade-up" data-aos-delay="200">
+          @foreach($menus as $menu)
+            <div class="col-lg-6 menu-item isotope-item filter-{{ strtolower($menu->category->name) }}">
+              <img src="{{ $menu->image ? asset('storage/'.$menu->image) : asset('images/default-image.jpg') }}" class="menu-img" alt="{{ $menu->name }}">
+              <div class="menu-content">
+                <a href="#">{{ $menu->name }}</a><span>${{ number_format($menu->price, 2) }}</span>
+              </div>
+              <div class="menu-ingredients">
+                {{ $menu->description }}
+              </div>
+            </div><!-- Menu Item -->
+          @endforeach
+        </div><!-- End Menu Items -->
+      
+      </div>
+    
+    </section><!-- /Menu Section -->
+
+
+    {{-- <!-- Menu Section -->
     <section id="menu" class="menu section">
 
       <!-- Section Title -->
@@ -263,16 +306,6 @@
         </div><!-- Menu Filters -->
 
         <div class="row isotope-container" data-aos="fade-up" data-aos-delay="200">
-
-          <div class="col-lg-6 menu-item isotope-item filter-starters">
-            <img src="{{ asset('tamp/assets/img/menu/lobster-bisque.jpg') }}" class="menu-img" alt="">
-            <div class="menu-content">
-              <a href="#">Lobster Bisque</a><span>$5.95</span>
-            </div>
-            <div class="menu-ingredients">
-              Lorem, deren, trataro, filede, nerada
-            </div>
-          </div><!-- Menu Item -->
 
           <div class="col-lg-6 menu-item isotope-item filter-specialty">
             <img src="{{ asset('tamp/assets/img/menu/bread-barrel.jpg') }}" class="menu-img" alt="">
@@ -358,9 +391,57 @@
 
       </div>
 
-    </section><!-- /Menu Section -->
+    </section><!-- /Menu Section --> --}}
 
-    <!-- Specials Section -->
+
+    <section id="specials" class="specials section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+          <h2>Specials</h2>
+          <div><span>Check Our</span> <span class="description-title">Specials</span></div>
+      </div><!-- End Section Title -->
+  
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+          <div class="row">
+              <div class="col-lg-3">
+                  <ul class="nav nav-tabs flex-column">
+                      @foreach($specials as $key => $special)
+                          <li class="nav-item">
+                              <a class="nav-link {{ $key === 0 ? 'active show' : '' }}" data-bs-toggle="tab" href="#specials-tab-{{ $special->id }}">
+                                  {{ $special->menu->name }}
+                              </a>
+                          </li>
+                      @endforeach
+                  </ul>
+              </div>
+              <div class="col-lg-9 mt-4 mt-lg-0">
+                  <div class="tab-content">
+                      @foreach($specials as $key => $special)
+                          <div class="tab-pane {{ $key === 0 ? 'active show' : '' }}" id="specials-tab-{{ $special->id }}">
+                              <div class="row">
+                                  <div class="col-lg-8 details order-2 order-lg-1">
+                                      <h3>{{ $special->menu->name }}</h3>
+                                      <p class="fst-italic">{{ $special->menu->description }}</p>
+                                      <p>{!! nl2br(e($special->description)) !!}</p>
+                                  </div>
+                                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                                    <img 
+                                    src="{{ $special->menu->image ? asset('storage/'.$special->menu->image) : asset('images/default-image.jpg') }}" 
+                                    alt="{{ $special->menu->name }}" 
+                                    class="img-fluid rounded-4 shadow-sm object-fit-cover" 
+                                    style="height: 250px; width: 100%; object-fit: cover;"
+                                >
+                                                                  </div>
+                              </div>
+                          </div>
+                      @endforeach
+                  </div>
+              </div>
+          </div>
+      </div>
+    </section><!-- /Specials Section -->
+    {{-- <!-- Specials Section -->
     <section id="specials" class="specials section">
 
       <!-- Section Title -->
@@ -459,7 +540,7 @@
 
       </div>
 
-    </section><!-- /Specials Section -->
+    </section><!-- /Specials Section --> --}}
 
     <!-- Events Section -->
     <section id="events" class="events section">
