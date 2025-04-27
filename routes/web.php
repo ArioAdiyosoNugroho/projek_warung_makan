@@ -1,9 +1,12 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InformasiWarungController;
+use App\Http\Controllers\MenuController;
 use App\Http\Controllers\SetAboutController;
+use App\Http\Controllers\SpecialController;
 use App\Http\Controllers\WhyUsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WhyUsPageController;
@@ -49,6 +52,13 @@ Route::delete('setting-WhyUs/{id}', [WhyUsController::class, 'destroy'])->name('
 Route::get('setting-WhyUs/{id}', [WhyUsController::class, 'show'])->name('setWhyUs.show');
 
 //Menu
+Route::resource('menus', MenuController::class);
+
+//category
+Route::resource('categories', CategoryController::class);
+
+//special
+Route::resource('specials', SpecialController::class);
 
 // ==================================end halaman admin=================//
 

@@ -76,13 +76,13 @@
       </li>
 
       <!-- Layouts -->
-      <li class="menu-item {{ Request::routeIs('setinfo') ||  request::routeIs('setabout') || request::routeIs('setWhyUs')? 'active' : '' }}">
+      <li class="menu-item {{ Request::routeIs('setinfo') ||  request::routeIs('setabout') || request::routeIs('setWhyUs') ? 'active' : '' }}">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
         <i class='bx bx-cog bx-spin' ></i>
           <div data-i18n="Layouts">Setting</div>
         </a>
 
-        <ul class="menu-sub {{ Request::routeIs('setinfo') ||  request::routeIs('setabout') || request::routeIs('setWhyUs') || request::routeIs('setmenu') ? 'show' : '' }}">
+        <ul class="menu-sub {{ Request::routeIs('setinfo') ||  request::routeIs('setabout') || request::routeIs('setWhyUs') ? 'show' : '' }}">
           <li class="menu-item {{ Request::routeIs('setinfo') ? 'active' : '' }}">
             <a href="{{ route('setinfo') }}" class="menu-link">
               <div data-i18n="Without menu">Informasi Rumah Makan</div>
@@ -108,38 +108,43 @@
               <div data-i18n="Fluid">Galery/event/etc.</div>
             </a>
           </li>
-          <li class="menu-item{{ Request::routeIs ('setmenu') ? 'active' : '' }}">
-            <a href="layouts-fluid.html" class="menu-link">
-              <div data-i18n="Fluid">Menu</div>
-            </a>
-          </li>
         </ul>
       </li>
 
       <li class="menu-header small text-uppercase">
-        <span class="menu-header-text">Pages</span>
+        <span class="menu-header-text">Menu Makanan</span>
       </li>
-      <li class="menu-item">
+      <li class="menu-item {{ Request::routeIs('menus.index') || Request::routeIs('menus.create') || Request::routeIs('categories.create') || Request::routeIs('categories.index') || Request::routeIs('specials.index') ||  Request::routeIs('specials.create') ? 'active' : '' }}">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           <i class="menu-icon tf-icons bx bx-dock-top"></i>
-          <div data-i18n="Account Settings">Account Settings</div>
+          <div data-i18n="Account Settings">Menu Makanan</div>
         </a>
-        <ul class="menu-sub">
-          <li class="menu-item">
-            <a href="pages-account-settings-account.html" class="menu-link">
-              <div data-i18n="Account">Account</div>
+        <ul class="menu-sub {{ Request::routeIs('menus.index') || Request::routeIs('menus.create') || Request::routeIs('categories.create') || Request::routeIs('categories.index') || Request::routeIs('specials.index') || Request::routeIs('specials.create') ? 'show' : '' }}">
+          <li class="menu-item {{ Request::routeIs('menus.index') ? 'active' : '' }}">
+            <a href="{{ route('menus.index') }}" class="menu-link">
+                <div data-i18n="Fluid">Data Menu</div>
             </a>
-          </li>
-          <li class="menu-item">
-            <a href="pages-account-settings-notifications.html" class="menu-link">
-              <div data-i18n="Notifications">Notifications</div>
+          </li> 
+          <li class="menu-item {{ Request::routeIs('menus.create') ? 'active' : '' }}">
+            <a href="{{ route('menus.create') }}" class="menu-link">
+                <div data-i18n="Fluid">Tambah Menu</div>
             </a>
-          </li>
-          <li class="menu-item">
-            <a href="pages-account-settings-connections.html" class="menu-link">
-              <div data-i18n="Connections">Connections</div>
+          </li> 
+          <li class="menu-item {{ Request::routeIs('specials.index') ? 'active' : '' }}">
+            <a href="{{ route('specials.index') }}" class="menu-link">
+                <div data-i18n="Fluid">Data Menu spesial</div>
             </a>
-          </li>
+          </li> 
+          <li class="menu-item {{ Request::routeIs('specials.create') ? 'active' : '' }}">
+            <a href="{{ route('specials.create') }}" class="menu-link">
+                <div data-i18n="Fluid">Tambah Menu spesial</div>
+            </a>
+          </li> 
+          <li class="menu-item {{ Request::routeIs('categories.index') ? 'active' : '' }}">
+            <a href="{{ route('categories.index') }}" class="menu-link">
+                <div data-i18n="Fluid">Data Kategori</div>
+            </a>
+          </li> 
         </ul>
       </li>
       <li class="menu-item">
